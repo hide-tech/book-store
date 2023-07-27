@@ -6,7 +6,7 @@ create table books (
 );
 
 CREATE SEQUENCE books_seq
-start with 1
+start with 6
 increment by 1
 minvalue 0
 maxvalue 1000000

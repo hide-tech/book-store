@@ -6,7 +6,7 @@ services:
     image: "book-store"
     container_name: "book-store"
     ports:
-      - 9001:9001
+      - 8000:8000
       - 8001:8001
     environment:
       - BPL_JVM_THREAD_COUNT=50
