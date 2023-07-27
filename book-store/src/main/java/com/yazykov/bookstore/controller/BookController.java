@@ -24,7 +24,7 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity<BookDto> createNewBook(BookDto bookDto) {
+    public ResponseEntity<BookDto> createNewBook(@RequestBody BookDto bookDto) {
         return ResponseEntity.status(201).body(bookService.createNewBook(bookDto));
     }
 

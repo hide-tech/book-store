@@ -1,18 +1,18 @@
 version: "3.8"
 services:
-  #  book-store:
-  #    depends_on:
-  #    - book-postgres
-  #    image: "book-service"
-  #    container_name: "book-store"
-  #    ports:
-  #      - 9001:9001
-  #      - 8001:8001
-  #    environment:
-  #      - BPL_JVM_THREAD_COUNT=50
-  #      - SPRING_DATASOURCE_URL=jdbc:postgresql://book-postgres:5432/book_db
-  #      - BPL_DEBUG_ENABLED=true
-  #      - BPL_DEBUG_PORT=8001
+  book-store:
+    depends_on:
+    - book-postgres
+    image: "book-store"
+    container_name: "book-store"
+    ports:
+      - 9001:9001
+      - 8001:8001
+    environment:
+      - BPL_JVM_THREAD_COUNT=50
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://book-postgres:5432/book_db
+      - BPL_DEBUG_ENABLED=true
+      - BPL_DEBUG_PORT=8001
   book-postgres:
     image: "postgres:14.4"
     container_name: "book-postgres"
@@ -22,3 +22,10 @@ services:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=book_db
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - 5050:80

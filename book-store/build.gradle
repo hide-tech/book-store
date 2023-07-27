@@ -21,6 +21,12 @@ dependencies {
 	implementation 'org.flywaydb:flyway-core'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.testcontainers:postgresql'
+}
+
+bootBuildImage {
+	imageName = "${project.name}"
+	environment = ["BP_JVM_VERSION" : "17.*"]
 }
 
 tasks.named('test') {

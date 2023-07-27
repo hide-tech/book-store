@@ -40,6 +40,6 @@ public class BookService {
     }
 
     public List<AuthorInfo> getAllAuthorsWithBookTitlesMaxMatchesChar(Character character) {
-        return bookRepository.findTitlesByMatchedString(String.valueOf(character));
+        return bookRepository.findTitlesByMatchedString(String.valueOf(character).toLowerCase());
     }
 }
