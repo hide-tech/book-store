@@ -28,12 +28,12 @@ public class BookController {
         return ResponseEntity.status(201).body(bookService.createNewBook(bookDto));
     }
 
-    @GetMapping("/authors-group")
+    @GetMapping("/group/authors")
     public ResponseEntity<GroupedBook> getGroupedBooksByAuthor() {
         return ResponseEntity.ok(bookService.getAllBooksGroupedByAuthor());
     }
 
-    @GetMapping("/filter")
+    @GetMapping("/titles/match")
     public ResponseEntity<List<AuthorInfo>> getAuthorInfoMatchedWithChar(@RequestParam("char") Character character) {
         return ResponseEntity.ok(bookService.getAllAuthorsWithBookTitlesMaxMatchesChar(character));
     }
